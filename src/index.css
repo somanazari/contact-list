@@ -1,0 +1,539 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: #292929;
+  padding: 40px;
+}
+
+.layout {
+  background-color: #121212;
+  box-shadow: 0px 5px 5px 0.1px #121212;
+  color: #e2e2e2;
+  align-items: center;
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+}
+
+.layout main {
+  padding: 25px;
+  width: 100%;
+}
+
+.layout header {
+  box-shadow: 0px 5px 5px 0.1px #0f0f0f;
+  width: calc(100% + 6px);
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #1f1f1f;
+  display: flex;
+  justify-content: space-between;
+}
+
+.layout header ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.layout header ul li {
+  margin-left: 10px;
+}
+
+.layout header ul li a {
+  text-decoration: none;
+  color: aqua;
+  position: relative;
+  transition: 0.3s;
+}
+
+.layout header ul li a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout header ul li a.activePage {
+  background-color: #121212;
+}
+
+.layout header h2 {
+  user-select: none;
+}
+
+.layout header .icon {
+  font-size: 19px;
+}
+
+.newContact,
+.updateContact {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.newContact span,
+.updateContact span.update_text {
+  align-self: flex-start;
+  margin-bottom: 10px;
+  user-select: none;
+  display: flex;
+  align-items: flex-end;
+}
+
+.updateContact span.update_text .icon {
+  font-size: 20px;
+}
+
+.newContact form,
+.updateContact form {
+  box-shadow: 0px 5px 5px 0.1px #0f0f0f;
+  width: 100%;
+  background-color: #0f0f0f;
+  padding: 20px 10px;
+}
+
+.newContact form .specifications,
+.updateContact form .specifications {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.updateContact form .specifications {
+  flex-direction: column;
+}
+
+.newContact form .specifications input,
+.updateContact form .specifications input {
+  box-shadow: 0px 5px 5px 0.1px #0f0f0f;
+  width: 48%;
+  border: none;
+  background-color: #1f1f1f;
+  border: 1px solid #1f1f1f;
+  padding: 15px 10px;
+  color: #e2e2e2;
+  outline: none;
+  font-weight: 400;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.updateContact form .specifications input {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.updateContact form .specifications input:last-child {
+  margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.newContact form .specifications input:focus,
+.updateContact form .specifications input:focus {
+  border: 1px solid #000;
+}
+
+.newContact form button,
+.updateContact form button {
+  background-color: #663399;
+  color: #e2e2e2;
+  font-weight: 500;
+  font-size: 17px;
+  border: none;
+  padding: 7px 30px;
+  border-radius: 3px;
+  margin-top: 15px;
+  cursor: pointer;
+  /* transition: 0.3s; */
+}
+
+.newContact form button:hover,
+.updateContact form button:hover {
+  box-shadow: 0px 5px 5px 0.1px #0f0f0f;
+  transform: scale(1.02);
+}
+
+.newContact .gender,
+.newContact .email_phone_show,
+.updateContact .gender,
+.updateContact .email_phone_show {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 30px;
+  margin-top: 10px;
+}
+
+.updateContact .gender > div,
+.updateContact .email_phone_show > div {
+  display: flex;
+}
+
+.newContact form .gender label,
+.newContact form .email_phone_show label,
+.updateContact form .gender label,
+.updateContact form .email_phone_show label {
+  cursor: pointer;
+}
+
+.newContact .gender input,
+.newContact .email_phone_show input,
+.updateContact .gender input,
+.updateContact .email_phone_show input {
+  margin: 4px 20px 0 5px;
+  cursor: pointer;
+}
+
+.newContact .gender input[type="radio"],
+.updateContact .gender input[type="radio"],
+.updateContact .email_phone_show input[type="radio"] {
+  display: grid;
+  place-content: center;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  margin: 6px 20px 0 5px;
+  font: inherit;
+  color: currentColor;
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+}
+
+.newContact .gender input[type="radio"]::before,
+.updateContact .gender input[type="radio"]::before,
+.updateContact .email_phone_show input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  background-color: #8b58be;
+}
+
+.newContact .gender input[type="radio"]:checked::before,
+.updateContact .gender input[type="radio"]:checked::before,
+.updateContact .email_phone_show input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+.contactsList > section {
+  margin-top: 10px;
+  background-color: #1f1f1f;
+  box-shadow: 0px 5px 5px 0.1px #0f0f0f;
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.contactsList > section p.emptyList {
+  user-select: none;
+  color: #e23c73;
+}
+
+.contactsList .listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contactsList .listHeader .icon {
+  background-color: #1f1f1f;
+  margin-left: 10px;
+  font-size: 27px;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.contactsList .contactList_options {
+  display: flex;
+  align-items: center;
+}
+
+.contactsList .contactList_options > div {
+  display: flex;
+  align-items: center;
+}
+
+.contactsList .contactList_options input {
+  box-shadow: 0px 5px 5px 0.1px #0f0f0f;
+  border: none;
+  background-color: #1f1f1f;
+  border: 1px solid #1f1f1f;
+  padding: 4px 10px;
+  color: #e2e2e2;
+  outline: none;
+  font-weight: 400;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.contactsList .contactList_options input:focus {
+  border: 1px solid #000;
+}
+
+.single_contact {
+  width: 100%;
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.single_contact:last-child {
+  margin: 0;
+}
+
+.single_contact .details {
+  display: flex;
+}
+
+.single_contact .details .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.single_contact .details .avatar .icon {
+  width: 45px;
+  height: 45px;
+}
+
+.single_contact .details .name_email {
+  margin-left: 5px;
+}
+
+.single_contact .details .name_email h3 {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.single_contact .details .name_email span {
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+.single_contact .options {
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.single_contact .options .icon {
+  color: #e23c73;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.single_contact .options .moreIcon {
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: -2px;
+  height: 100%;
+}
+
+.single_contact .options a.edit {
+  color: #e2e2e2;
+}
+
+.not_found {
+  background-color: #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.not_found h1 {
+  color: #e23c73;
+  font-weight: lighter;
+  font-size: 70px;
+  user-select: none;
+}
+
+.not_found h3 {
+  margin: 0 0 20px 0;
+  user-select: none;
+}
+
+.not_found a {
+  text-decoration: none;
+  color: #fff;
+  background-color: blueviolet;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.not_found a:hover {
+  box-shadow: 0px 5px 5px 0.1px #121212;
+  transform: scale(1.05);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .layout {
+    width: 100%;
+  }
+
+  body {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .newContact form {
+    padding: 10px;
+  }
+
+  .newContact form .specifications {
+    flex-wrap: wrap;
+  }
+
+  .newContact form .specifications input {
+    width: 100%;
+  }
+
+  .newContact form .specifications input:first-child {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 470px) {
+  body {
+    padding: 30px 20px;
+  }
+
+  .layout main {
+    padding: 15px;
+  }
+
+  .contactsList > section {
+    padding: 5px;
+  }
+
+  .contactsList .listHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contactsList .listHeader .contactList_options {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .newContact form .specifications,
+  .updateContact form .specifications {
+    margin: 0;
+  }
+
+  .newContact form,
+  .updateContact form {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .newContact form .specifications input,
+  .updateContact form .specifications input {
+    padding: 10px;
+  }
+
+  .newContact form button,
+  .updateContact form button {
+    font-size: 14px;
+    padding: 5px 25px;
+  }
+}
+
+@media (max-width: 360px) {
+  .contactsList .listHeader .contactList_options input {
+    width: 80%;
+  }
+
+  .updateContact .gender,
+  .updateContact .email_phone_show {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: unset;
+  }
+
+  .updateContact .gender input,
+  .updateContact .email_phone_show input {
+    margin-top: 3px !important;
+  }
+
+  .updateContact .email_phone_show {
+    margin: 25px 0 10px 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .layout main {
+    padding: 15px;
+  }
+
+  .contactsList > section {
+    padding: 5px;
+  }
+
+  .single_contact .details .avatar .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .single_contact .details .name_email h3 {
+    font-size: 18px;
+  }
+
+  .single_contact .details .name_email span {
+    font-size: 12px;
+  }
+}
